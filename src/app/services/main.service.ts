@@ -18,7 +18,6 @@ export class MainService {
 
   getAllPhotos(pageIndexValue?: number, pageSizeValue?: number) {
     let params = new HttpParams();
-
     params = params
       .set('page', pageIndexValue?.toString())
       .set('limit', pageSizeValue?.toString());
@@ -28,7 +27,6 @@ export class MainService {
 
   initLocalStorageFavPhotos() {
     const storageValue = JSON.parse(localStorage.getItem(FAVORITES_KEY));
-
     if (storageValue?.length === 0 || storageValue === null) {
       const favPhotos = [];
       localStorage.setItem(FAVORITES_KEY, JSON.stringify(favPhotos));
@@ -47,24 +45,20 @@ export class MainService {
   getFavoritesPhotos() {
     const favPhotos = JSON.parse(localStorage.getItem(FAVORITES_KEY));
     this.subject.next(favPhotos);
-
     return this.favorites$;
   }
 
-  removeFromFavorites(id) {
+  removeFromFavorites(id: string) {
     let favoritesPhotos: Photo[] = JSON.parse(
       localStorage.getItem(FAVORITES_KEY)
     );
-
     const index = favoritesPhotos.findIndex((photo) => photo.id == id);
-
     favoritesPhotos.splice(index, 1);
-
     localStorage.setItem(FAVORITES_KEY, JSON.stringify(favoritesPhotos));
     return favoritesPhotos;
   }
 
-  getPhotoById(id) {
+  getPhotoById(id: string) {
     return this.http.get(`https://picsum.photos/id/${id}/info`);
   }
 }

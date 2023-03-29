@@ -36,7 +36,7 @@ export const getAllPhotosFail = createAction(
 export const getPhotoById = createAction(
   MainActionTypes.getPhotoById,
   props<{
-    id: number;
+    id: string;
   }>()
 );
 

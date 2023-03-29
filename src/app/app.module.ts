@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { PhotosComponent } from './photos/photos.component';
-import { FavoritesComponent } from './favorites/favorites.component';
+import { PhotosComponent } from './features/photos/photos.component';
+import { FavoritesComponent } from './features/favorites/favorites.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/modules/shared.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,27 +15,17 @@ import { mainReducer } from './store/main.reducers';
 import { MainEffects } from './store/main.effects';
 import { MainService } from './services/main.service';
 import { AngularMaterialModule } from './shared/modules/angular-material.module';
-import { PhotosListComponent } from './photos-list/photos-list.component';
-import { SinglePhotoPageComponent } from './single-photo-page/single-photo-page.component';
+
+import { AppRoutingModule } from './routing/app-routing.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PhotosComponent,
-    FavoritesComponent,
-    PhotosListComponent,
-    SinglePhotoPageComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
+
     SharedModule,
     AngularMaterialModule,
-    RouterModule.forRoot([
-      { path: 'photos', component: PhotosComponent },
-      { path: 'photos/:id', component: SinglePhotoPageComponent },
-      { path: 'favorites', component: FavoritesComponent },
-      { path: 'photos-list', component: PhotosListComponent },
-    ]),
+    AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({ main: mainReducer }),
     EffectsModule.forRoot([MainEffects]),
@@ -44,8 +34,8 @@ import { SinglePhotoPageComponent } from './single-photo-page/single-photo-page.
     }),
     BrowserAnimationsModule,
   ],
-  providers: [MainService],
-  exports: [RouterModule],
+  providers: [],
+  exports: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

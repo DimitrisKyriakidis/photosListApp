@@ -8,9 +8,9 @@ import {
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Photo } from '../shared/models/photo.model';
-import { MainActionTypes } from '../store/main.actions';
-import { selectAllPhotos, selectLoading } from '../store/main.selector';
+import { Photo } from '../../shared/models/photo.model';
+import { MainActionTypes } from '../../store/main.actions';
+import { selectAllPhotos, selectLoading } from '../../store/main.selector';
 
 @Component({
   selector: 'app-photos-list',
@@ -26,8 +26,8 @@ export class PhotosListComponent {
 
   loading: boolean = false;
 
-  tableOptions = {
-    pageIndex: 0,
+  listOptions = {
+    pageIndex: 1,
     pageSize: 6,
   };
 
@@ -41,8 +41,8 @@ export class PhotosListComponent {
     this.loading = true;
     this.store.dispatch({
       type: MainActionTypes.getAllPhotos,
-      pageIndex: this.tableOptions.pageIndex,
-      pageSize: this.tableOptions.pageSize,
+      pageIndex: this.listOptions.pageIndex,
+      pageSize: this.listOptions.pageSize,
     });
 
     this.loading = false;
@@ -56,7 +56,7 @@ export class PhotosListComponent {
         element.scrollHeight - element.scrollTop === element.clientHeight;
 
       if (atBottom && !this.loading) {
-        this.tableOptions.pageIndex++;
+        this.listOptions.pageIndex++;
         this.loading = true;
 
         setTimeout(() => {
