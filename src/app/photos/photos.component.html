@@ -1,0 +1,5 @@
+<app-photos-list
+  [photos$]="allPhotos$"
+  (selectedPhoto)="addToFavorites($event)"
+  [hasScroll]="true"
+></app-photos-list>

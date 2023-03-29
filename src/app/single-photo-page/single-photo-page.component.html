@@ -1,0 +1,15 @@
+<div
+  *ngIf="activePhoto$ | async as photo"
+  class="flex flex-col justify-center items-center h-screen"
+>
+  <img [src]="photo?.download_url" class="rounded-lg w-2/3 h-full pb-44 pt-8" />
+
+  <div class="relative bottom-28">
+    <button
+      (click)="removeFromFavorites(photo.id)"
+      class="inline-flex items-center rounded-sm border border-transparent bg-red-500 p-4 h-10 text-sm font-medium text-white shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2"
+    >
+      Remove from favorites
+    </button>
+  </div>
+</div>
