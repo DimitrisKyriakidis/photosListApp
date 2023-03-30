@@ -13,11 +13,7 @@ import { Photo } from '../../shared/models/photo.model';
 export class FavoritesComponent implements OnInit {
   favoritesPhotos$: Observable<Photo[]>;
 
-  constructor(
-    private store: Store,
-    private mainService: MainService,
-    private router: Router
-  ) {}
+  constructor(private mainService: MainService, private router: Router) {}
 
   ngOnInit(): void {
     this.favoritesPhotos$ = this.mainService.getFavoritesPhotos();

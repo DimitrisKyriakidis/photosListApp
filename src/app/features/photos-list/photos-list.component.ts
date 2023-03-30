@@ -20,7 +20,7 @@ import { selectAllPhotos, selectLoading } from '../../store/main.selector';
 export class PhotosListComponent {
   @Input() photos$: Observable<Photo[]>;
 
-  @Input() hasScroll: boolean = false;
+  @Input() infiniteScroll: boolean = false;
 
   @Output() selectedPhoto = new EventEmitter<Photo>();
 
@@ -49,7 +49,7 @@ export class PhotosListComponent {
   }
 
   onScroll(event) {
-    if (this.hasScroll) {
+    if (this.infiniteScroll) {
       const element = event.target;
 
       let atBottom =

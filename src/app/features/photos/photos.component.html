@@ -1,5 +1,5 @@
 <app-photos-list
   [photos$]="allPhotos$"
   (selectedPhoto)="addToFavorites($event)"
-  [hasScroll]="true"
+  [infiniteScroll]="true"
 ></app-photos-list>

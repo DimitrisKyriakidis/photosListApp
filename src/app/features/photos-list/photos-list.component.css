@@ -2,20 +2,30 @@
   cursor: pointer;
 }
 
+.grid-height {
+  height: 70vh;
+}
+
 @media screen and (min-width: 1200px) and (max-width: 1700px) {
-  .grid {
+  .grid-height {
     height: 40vh;
   }
 }
 
 @media screen and (min-width: 1701px) and (max-width: 1800px) {
-  .grid {
+  .grid-height {
     height: 45vh;
   }
 }
 
 @media screen and (min-width: 1801px) and (max-width: 2007px) {
-  .grid {
+  .grid-height {
     height: 70vh;
+  }
+}
+
+@media only screen and (min-width: 2008px) {
+  .grid-height {
+    height: 60vh;
   }
 }

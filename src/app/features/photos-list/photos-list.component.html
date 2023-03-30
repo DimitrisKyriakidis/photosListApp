@@ -1,7 +1,7 @@
-<div class="">
+<div class="grid-container">
   <div
     (scroll)="onScroll($event)"
-    class="grid grid-cols-3 w-5/6 h-[70vh] mx-auto mt-8 overflow-y-auto gap-20"
+    class="grid grid-cols-3 w-5/6 h-[70vh] mx-auto mt-8 overflow-y-auto gap-20 grid-height"
   >
     <ng-container *ngFor="let photo of photos$ | async">
       <img
@@ -9,7 +9,7 @@
         [src]="photo?.download_url"
         [width]="photo?.width"
         [height]="photo?.height"
-        class="rounded-lg object-cover clickable"
+        class="rounded-md object-cover clickable"
       />
     </ng-container>
   </div>

@@ -22,7 +22,6 @@ import { AppRoutingModule } from './routing/app-routing.module';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-
     SharedModule,
     AngularMaterialModule,
     AppRoutingModule,
