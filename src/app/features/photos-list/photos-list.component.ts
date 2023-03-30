@@ -53,7 +53,7 @@ export class PhotosListComponent {
       const element = event.target;
 
       let atBottom =
-        element.scrollHeight - element.scrollTop === element.clientHeight;
+        element.scrollHeight - element.scrollTop < element.clientHeight + 100;
 
       if (atBottom && !this.loading) {
         this.listOptions.pageIndex++;

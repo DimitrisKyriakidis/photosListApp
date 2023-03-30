@@ -1,18 +1,16 @@
-<div class="grid-container">
-  <div
-    (scroll)="onScroll($event)"
-    class="grid grid-cols-3 w-5/6 h-[70vh] mx-auto mt-8 overflow-y-auto gap-20 grid-height"
-  >
-    <ng-container *ngFor="let photo of photos$ | async">
-      <img
-        (click)="selectPhoto(photo)"
-        [src]="photo?.download_url"
-        [width]="photo?.width"
-        [height]="photo?.height"
-        class="rounded-md object-cover clickable"
-      />
-    </ng-container>
-  </div>
+<div
+  (scroll)="onScroll($event)"
+  class="grid grid-cols-3 w-5/6 h-[70vh] mx-auto mt-8 overflow-y-auto gap-20 grid-height"
+>
+  <ng-container *ngFor="let photo of photos$ | async">
+    <img
+      (click)="selectPhoto(photo)"
+      [src]="photo?.download_url"
+      [width]="photo?.width"
+      [height]="photo?.height"
+      class="rounded-md object-cover clickable"
+    />
+  </ng-container>
 </div>
 
 <div *ngIf="loading" class="flex justify-center items-center mb-4">
